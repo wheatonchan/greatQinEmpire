@@ -1,0 +1,109 @@
+.c-transpant{
+	background: transparent;
+}
+.mine-bg{
+	background:url(../image/bg_mine.jpg)  no-repeat; background-size:cover;
+	background-position-y: 70%;
+}
+.c-subTitle{
+	font-size: 35px;
+	line-height: 50px;
+	margin: 30px 0 10px 15px;
+	font-weight: bold;
+}
+.mui-table-view:before{
+	height: 0;
+}
+.mui-navigate-right:after, .mui-push-right:after{
+	color: #333333;
+	font-weight: 600;
+}
+
+.c-subLab{
+	margin: 10px 0 20px ;
+	display: block;
+	font-size: 12px;
+}
+.mui-action-back .back{
+	width: 25px;
+}
+.c-header{
+	border: none;
+	box-shadow: none;
+	background: transparent;
+}
+.mui-popup-inner,.mui-popup-button{
+	background: #EFE4D0;
+}
+.mui-popup-input.c-pop-input input{
+	border: none;
+	background: #DCD0BA;
+	border-radius: 20px;
+	line-height: 40px;
+	height: 40px;
+	padding-left: 10px;
+	width: 92%;
+	margin-left: 3%;
+}
+.c-pop-input{
+	text-align: left ;
+}
+.c-pop-input label{
+	margin: 15px 0 0 0;
+	display: block;
+}
+.c-pop{
+	width: 92%;
+}
+.c-pop .mui-popup-title{
+	font-weight: 600;
+	font-size: 20px;
+	margin-bottom: 30px;
+}
+.v-pic{
+	text-align: center;
+	padding: 30px 0;
+}
+.v-pic img{
+	width: 150px;
+	margin-bottom: 15px;
+}
+.c-active{
+	color: #678651;
+}
+.c-def{
+	color:#77171E
+}
+.c-media-list{
+	color: #77171E
+}
+.c-media-list .mui-media-object{
+	max-width: 60px;
+	margin: 0;
+}
+.c-center-content{
+	text-align: center;
+}
+.code{
+	width: 60%;
+	margin: 15px 0;
+}
+.c-main-btn{
+	color: white;
+	border: none;
+	background: #9C2930;
+	padding: 0 15px;
+	line-height: 40px;
+	font-size: 16px;
+	border-radius: 20px;
+	
+}
+.mui-table-view{
+	background: transparent;
+}
+
+
+.zhengtu-bg{
+	background:url(../image/zhengtu_bg.jpg)  no-repeat; background-size:cover;
+	background-position-y: 70%;
+}

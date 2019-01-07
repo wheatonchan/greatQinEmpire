@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+	<link href="../css/c.css" rel="stylesheet"/>
+	
+	</head>
+	
+	<body >
+     <div class=" mui-fullscreen c-transpant mine-bg" >
+		 <div class="c-subTitle">
+			 我的
+		 </div>
+     	 <ul class="mui-table-view c-transpant" >
+     	    <li class="mui-table-view-cell">
+     	        <a class="mui-navigate-right" href="mine_use_center.html">
+     	            用户中心
+     	        </a>
+     	    </li>
+     	    <li class="mui-table-view-cell">
+     	        <a class="mui-navigate-right" href="mine_safe_set.html">
+     	            安全设置
+     	        </a>
+     	    </li>
+     	    <li class="mui-table-view-cell">
+     	        <a class="mui-navigate-right" href="mine_withdraw.html">
+     	           提币地址
+     	        </a>
+     	    </li>
+			<li class="mui-table-view-cell">
+			    <a class="mui-navigate-right" href="mine_invite_share.html">
+			        邀请分享
+			    </a>
+			</li>
+			<li class="mui-table-view-cell">
+			    <a class="mui-navigate-right" href="mine_family.html">
+			        我的家族
+			    </a>
+			</li>
+			<li class="mui-table-view-cell">
+			    <a class="mui-navigate-right" href="mine_about_us.html">
+			       关于我们
+			    </a>
+			</li>
+     	</ul>
+     		
+     </div>
+	 <script src="../js/mui.min.js"></script>
+	 <script>
+		 mui("body").on('tap', 'a', function(e) {
+		 	e.preventDefault();
+		 	var url = this.getAttribute('href');
+		 	var tap = this.getAttribute('tap');
+		 	if(url === '#' || typeof(url) == 'undefined' || !url) return false;
+		 	var id = url,
+		 		extras = this.getAttribute("extras");
+		 	mui.openWindow({
+		 		id: id,
+		 		url: url,
+		 		show: {
+		 			autoShow: true
+		 		},
+		 		extras: {
+		 			data: extras
+		 		}
+		 	});
+		 })
+	 </script>
+	</body>
+</html>

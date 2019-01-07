@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/c.css" rel="stylesheet" />
+		<style>
+			.c-input-out{
+				padding: 0 3%;
+			}
+			.c-input-out label{
+				color: #67513D;
+				font-size: 12px;
+			}
+			.c-input-out textarea{
+				margin: 10px 0 15px;
+				background: #EFE4D0;
+				border-radius: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav c-header">
+			<a class="mui-action-back mui-icon mui-pull-left"><img class="back" src="../image/back.png"/></a>		</header>
+		<div class="mui-fullscreen c-transpant" style="padding-top: 40px;">
+			<div class="c-subTitle">
+				提币地址
+				</div>
+			<div class="c-input-out">
+			<label>ETH提币地址（默认登录钱包地址）</label>
+			<textarea rows="2"></textarea>
+			</div>
+			<div class="c-input-out">
+			<label>ETH提币地址</label><span class="mui-pull-right">编辑</span>
+			<textarea rows="2"></textarea>
+			</div>
+			<button type="button" class="mui-btn add-address">添加地址</button>
+		</div>
+		<script src="../js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>
