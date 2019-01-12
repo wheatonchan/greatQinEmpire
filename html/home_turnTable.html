@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link href="../css/common.css" rel="stylesheet" />
+		<link href="../css/d.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-fullscreen {
+				background: url(../image/bg_home.jpg) no-repeat;
+				background-size: 100% 100%;
+			}
+			.turnTable-title{color: #300900;margin-top: -7%;text-align: center;font-size: 1.3rem;font-weight: bold;}
+			.turnTable-money{padding: 0 30px;margin-top: 30px;}
+			.turnTable-money div{display: inline-block;width: 50%;float: left;}
+			.turnTable-money div label{display:  block;text-align: center;color: #7D6043;font-size:16px;}
+			.turnTable-money div.golab-number label:nth-child(1){color: #300900;font-size:26px}
+			.turnTable-money div.lottery-money label:nth-child(1){color: #9E2B31;font-size: 26px;}
+			.turnTable-money div label:nth-child(2){margin-top: 10px;}
+			.turnTable-body{width: 100%;top: 20px;position: relative;}
+			.turnTable-schedule{clear: both;background: url(../image/zp01.png) center no-repeat;color: white;width: 180px;height: 50px;background-size: 100%;line-height: 50px;font-size: 18px;}
+		.turnTable-body .schedule-message{margin-top: 8px;}
+.turnTable-body .schedule-message span{color: #9E2B31;font-size:15px;}
+.turnTable-body .schedule-message span+span{color:#7D6043;}
+
+
+          .lottery-box {
+				width:260px;
+				height:260px;
+				position: relative;
+				background: url(../image/zp02.png) no-repeat;
+				background-size: 100% 100%;
+				top: 70px;
+			}
+
+			.lottery-box .playbtn{
+				width: 60px;
+				height: 60px;
+				position: absolute;
+				top: 100px;
+				left:100px;
+				background: url(../image/zp03.png) no-repeat;
+				background-size: 100% 100%;
+				z-index: 2;
+			}
+			
+			.lottery-box-border{
+				width: 346px;
+				height: 380px;
+				background: url(../image/zp04.png) no-repeat;
+				background-size: 100% 100%;
+				position: absolute;
+				top:-60px;
+				left: -44px;
+				z-index: 1;
+			}
+			.circleChart{
+				width: 260px;
+				height: 260px;
+				position: absolute;
+				top: 0px;
+				left: 0px;;
+				z-index: 0;
+	
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mui-fullscreen">
+			<a class="mui-action-back"><img src="../image/back.png" /></a>
+			<div class="turnTable-title">大转盘</div>
+			<div class="turnTable-money">
+				<div class="golab-number">
+					<label>323689</label>
+					<label>第8局</label>
+				</div>
+				<div class="lottery-money">
+					<label>8888888</label>
+					<label>奖池累计(RC)</label>
+				</div>
+			</div>
+           
+           <div class="turnTable-body" align="center">
+           	<div class="turnTable-schedule">
+				第9局
+			</div>
+			<div class="schedule-message"><span>已筹88888888</span><span>/需筹99999999,进度:90%</span></div>
+			
+			<div class="lottery-box">
+				<div class="lottery-box-border"></div>
+				<div class="circleChart" ></div>
+				<div class="playbtn"  title="开始抽奖"></div>
+			</div>
+	
+           </div>
+			
+		</div>
+        <script type="text/javascript" src="../js/mui.min.js" ></script>
+		<script type="text/javascript" src="../js/jquery-1.11.0.js" ></script>
+		<script type="text/javascript" src="../js/jquery.rotate.min.js" ></script>
+		<script type="text/javascript" src="../js/circleChart.min.js" ></script>
+		<script type="text/javascript">
+			mui.init();
+			$(function() {
+				var $btn = $('.playbtn');
+				var isture = 0;
+				var clickfunc = function() {
+					var data = [1, 2, 3, 4];
+					//data为随机出来的结果，根据概率后的结果
+					data = data[Math.floor(Math.random() * data.length)];
+					switch(data) {
+						case 1:
+							rotateFunc(1, 0, '谢谢参与!');
+							break;
+						case 2:
+							rotateFunc(2, 90, '一等奖');
+							break;
+						case 3:
+							rotateFunc(3, 180, '二等奖!');
+							break;
+						case 4:
+							rotateFunc(4, 270, '三等奖!');
+							break;
+					}
+				};
+				$btn.click(function() {
+					if(isture) return; // 如果在执行就退出
+					isture = true; // 标志为 在执行
+				    clickfunc();
+				});
+				var rotateFunc = function(awards, angle, text) {
+					isture = true;
+					$btn.stopRotate();
+					$btn.rotate({
+						angle: 0,
+						duration: 4000, //旋转时间
+						animateTo: angle + 1440, //让它根据得出来的结果加上1440度旋转
+						callback: function() {
+							isture = false; // 标志为 执行完毕
+							alert(text);
+						}
+					});
+				};
+				
+	$(".circleChart").circleChart({
+      value: 90,
+      size: 260,
+      startAngle: 180,
+      speed: 3000,
+      widthRatio: .1,
+      color: "#9E2B31",
+      backgroundColor: "#C0A16B",
+      animation: "easeInOutCubic"
+  });
+			});
+		</script>
+	</body>
+</html>

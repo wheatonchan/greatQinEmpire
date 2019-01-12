@@ -5,69 +5,123 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.css" rel="stylesheet" />
+		
 		<link href="../css/c.css" rel="stylesheet" />
 		<style>
-			.pop-cancel{
-				color: #2D0700;
-			}
-			.pop-sure{
-				color: #90141E;
-			}
-			.mui-grid-view.mui-grid-9.c-radio-grid,.mui-table-view.mui-grid-view.c-radio-grid .mui-table-view-cell{
-				background: transparent;
-				border: none;
-			}
-			.c-radio-grid .radio-btn{
-				background:  #DBD0BA;
-				border-radius: 20px;
-			}
-			.c-pop .c-bottom-tip .c-tip{
-				background:  #DBD0BA;
-				line-height: 40px;
+			.mui-slider .mui-slider-item a{
+				width: 100%;
 				text-align: center;
-				margin-top: 15px;
-				width: 94%;
 			}
-			.c-pop .c-bottom-tip{
-				padding-left: 3%;
+			.mui-slider .mui-slider-item img{
+				height: 150px;
+				width: 105px !important;
 			}
+			.c-subLab{
+				margin-top: 0;
+				margin-bottom: 5px;
+			}
+			.mui-table-view-cell > a:not(.mui-btn){
+				padding: 4px 5px;
+				margin: -4px -5px;
+			}
+		
 		</style>
 	</head>
 	<body>
-		<div class="mui-fullscreen c-transpant" style="padding-top: 40px;">
+		<div class="mui-fullscreen nomal-bg" style="padding-top: 40px;">
 			<a class="mui-action-back mui-icon mui-pull-left"><img class="back" src="../image/back.png"/></a>
-			<div class="c-subTitle">
+				<div class="c-subTitle">
 				用户中心
 			</div>
-			<ul class="mui-table-view">
-					<li class="mui-table-view-cell name">
-						<label class="c-subLab">昵称</label>
-						<a class="mui-navigate-right">
-							Item 1
-						</a>
-					</li>
-					<li class="mui-table-view-cell grade">
-						<label class="c-subLab">等级</label>
-						<a class="">
-							 Item 2
-						</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<label class="c-subLab">UID</label>
-						<a class="">
-							 Item 2
-						</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<label class="c-subLab">创建时间</label>
-						<a class="">
-							 Item 2
-						</a>
-					</li>
-			</ul>
-			<div>
-				<button type="button" class="mui-btn mui-btn-blue mui-btn-block">退出登录</button>
+			<div class="mui-scroll-wrapper" style="top: 150px;">
+				<div class="mui-scroll">
+				
+				<div id="slider" class="mui-slider" >
+				  <div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+					  <a href="#">
+						<img src="../image/04.png">
+					  </a>
+					</div>
+					<!-- 第一张 -->
+					<div class="mui-slider-item">
+					  <a href="#">
+						<img src="../image/01.png">
+					  </a>
+					</div>
+					<!-- 第二张 -->
+					<div class="mui-slider-item">
+					  <a href="#">
+						<img src="../image/02.png">
+					  </a>
+					</div>
+					<!-- 第三张 -->
+					<div class="mui-slider-item">
+					  <a href="#">
+						<img src="../image/03.png">
+					  </a>
+					</div>
+					<!-- 第四张 -->
+					<div class="mui-slider-item">
+					  <a href="#">
+						<img src="../image/04.png">
+					  </a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+					  <a href="#">
+						<img src="../image/01.png">
+					  </a>
+					</div>
+					
+				  </div>
+				 <div class="slider-btn-layour">
+				 	<button id="slider-pre" class="slider-btn"><</button>
+				 	<button id="slider-next" class="slider-btn">></button>
+				 </div>
+				</div>
+				<ul class="mui-table-view">
+						<li class="mui-table-view-cell name">
+							<label class="c-subLab">昵称</label>
+							<a class="mui-navigate-right">
+								Item 1
+							</a>
+						</li>
+						<li class="mui-table-view-cell grade">
+							<label class="c-subLab">等级</label>
+							<a class="">
+								 <ul class="c-grade-list">
+									 <li>丞相</li>
+									  <li>元帅</li>
+									  <li>将军</li>
+									  <li>士兵</li>
+									  <li class="grade-tip" >晋升级别</li>
+									  <li style="clear: both;"></li>
+								 </ul>
+							</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<label class="c-subLab">UID</label>
+							<a class="">
+								 Item 2
+							</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<label class="c-subLab">创建时间</label>
+							<a class="">
+								 Item 2
+							</a>
+						</li>
+				</ul>
+				<div>
+					<button type="button" class="c-red-btn">退出登录</button>
+				</div>
+				</div>
 			</div>
+			
+			
+			
 				<div class="mui-popup c-pop mui-popup-in " id="name-pop" style="display: none;">
 				<div class="mui-popup-inner">
 					<div class="mui-popup-title">修改昵称</div>
@@ -121,7 +175,33 @@
 		<script src="../js/mui.js"></script>
 		<script src="../js/jquery-1.11.0.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
+			var index = 0;
+			
+			var gallery = mui('.mui-slider');
+			gallery.slider({
+			  interval:0//自动轮播周期，若为0则不自动播放，默认为0；
+			});
+			$("#slider-pre").on("tap",function(){
+				if(index==-1){
+					index=2;
+				}else{
+					index -= 1;	
+				}
+				gallery.slider().gotoItem(index);
+			})
+			$("#slider-next").on("tap",function(){
+				if(index==4){
+					index=1;
+				}else{
+					index += 1;
+				}
+				
+				gallery.slider().gotoItem(index);
+			})
+			mui('.mui-scroll-wrapper').scroll({
+				deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+			});
 			$(".grade").on("tap", function() {
 				// e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
 				$("#rise-pop").css("display","block");

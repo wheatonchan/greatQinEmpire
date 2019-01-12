@@ -5,10 +5,14 @@
 	background:url(../image/bg_mine.jpg)  no-repeat; background-size:cover;
 	background-position-y: 70%;
 }
+.duihuan-bg{
+	background:url(../image/bg_duihuan.jpg) no-repeat; background-size:cover;
+	background-position-y: 60%;
+}
 .c-subTitle{
 	font-size: 35px;
 	line-height: 50px;
-	margin: 30px 0 10px 15px;
+	margin: 50px 0 10px 15px;
 	font-weight: bold;
 }
 .mui-table-view:before{
@@ -26,6 +30,7 @@
 }
 .mui-action-back .back{
 	width: 25px;
+	margin-left: 10px;
 }
 .c-header{
 	border: none;
@@ -107,3 +112,269 @@
 	background:url(../image/zhengtu_bg.jpg)  no-repeat; background-size:cover;
 	background-position-y: 70%;
 }
+.pop-cancel{
+	color: #2D0700;
+}
+.pop-sure{
+	color: #90141E;
+}
+.mui-grid-view.mui-grid-9.c-radio-grid,.mui-table-view.mui-grid-view.c-radio-grid .mui-table-view-cell{
+	background: transparent;
+	border: none;
+}
+.c-radio-grid .radio-btn{
+	background:  #DBD0BA;
+	border-radius: 20px;
+}
+.c-pop .c-bottom-tip .c-tip{
+	background:  #DBD0BA;
+	line-height: 40px;
+	text-align: center;
+	margin-top: 15px;
+	width: 94%;
+}
+.c-pop .c-bottom-tip{
+	padding-left: 3%;
+}
+.mui-control-content {
+			height: 400px;
+}
+.mui-segmented-control .mui-control-item{
+	display: inline-block;
+	width: 32%;	
+	color: #380A00;
+	border: none;
+	background: #DCD0BA;
+	line-height: 40px;
+	border-radius: 20px;
+}
+.mui-segmented-control .mui-control-item:nth-child(2){
+	margin: 0 2%;
+}
+.mui-segmented-control{
+	border: none;
+}
+.mui-segmented-control .mui-control-item.mui-active{
+	background: #9D2932;
+}
+.c-card-out{
+	border:1px solid #BA9763;
+	border-radius: 6px;
+	
+}
+.c-card-out .c-card-head{
+	padding: 15px;
+	background: #DCD0BA;
+}
+.c-card-head .c-head-1{
+	position: relative;
+}
+.c-card-out .c-card-tip{
+	border:1px solid #A1343D;
+	color: #A1343D;
+	border-radius: 2px;
+	padding: 5px;
+	font-size: 13px;
+}
+.c-card-out .c-head-title{
+	color: #310A00;
+	text-align: center;
+	position: absolute;
+	width: 100%;
+	left: 0;
+	font-size: 18px;
+	font-weight: bold;
+}
+.c-card-head .c-head-2{
+	margin: 10px 10% 0;
+}
+.c-card-head .c-head-2 label:nth-child(2){
+	float: right;
+}
+.c-card-body{
+background:#EFE4D0;
+}
+.c-item-top label{
+	float: left;
+	display: block;
+	color: #2A0000;
+	font-size: 15px;
+}
+.c-item-top label:nth-child(2){
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	left: 0;
+}
+.c-item-top label:nth-child(3){
+	float: right;
+	color: #A1343D;
+}
+.c-item-bottom span{
+	color: #2A0000;
+	margin-top: 5px;
+	display: block;
+	font-size: 13px;
+	
+}
+.nomal-bg{
+	background:url(../image/empty_bg.jpg) repeat; 
+	background-size:cover;
+	padding-top: 20px;
+}
+.c-duihuan-top{
+	background:url(../image/shuju.png) no-repeat center;
+	width: 96%;
+	margin: -10px 2% 0;
+	height: 24%;
+	background-size: 100% 100%;
+	position: relative;
+}
+.c-duihuan-top .c-red-top{
+	color: #EFE4D0;
+	text-align: center;
+	padding-top: 8%;
+}
+.c-duihuan-top .c-red-top span{
+	display: block;
+	font-size: 25px;
+}
+.c-duihuan-top .c-red-top label{
+	display: block;
+	font-size: 12px;
+	margin-top: 5px;
+}
+.c-duihuan-top .top-bottom{
+	position: absolute;
+	bottom: 10%;
+	margin: 0;
+	width: 100%;
+	height: 30%;
+	padding: 5px 0;
+}
+ul li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.c-duihuan-top .top-bottom li {
+	width: 50%;
+	float: left;
+	text-align: center;
+	color: #EFE4D0;
+}
+
+.c-duihuan-top .top-bottom li p {
+	font-size: 20px;
+	color: #EFE4D0;
+	margin: 0;
+}
+.c-duihuan-top .top-bottom li span{
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 12px;
+	display: inline-block;
+}
+.c-duihuan-btn,.c-duihuan-address,.c-duihuan-bottom{
+	width: 100%;
+	padding:0 3%;
+	color: #300900;
+}
+.c-duihuan-btn button{
+	border: none;
+	width: 47%;
+	margin: 0;
+	padding: 0;
+	height: 60px;
+	display: inline-block;
+	border-radius: 0;
+}
+.c-duihuan-btn .zhuanzhang{
+	background: url(../image/zhuanzhang.png) no-repeat center;
+	background-size: 100% 100%;
+	float: right;
+}
+.c-duihuan-btn .shandui{
+	background: url(../image/shandui.png) no-repeat center;
+	background-size: 100% 100%;
+}
+.c-duihuan-address .tip{
+	margin-top: 10px;
+}
+.c-duihuan-bottom .tip{
+	background:url(../image/tishi.png) no-repeat ;
+	background-size: 18px;
+	padding-left: 25px;
+	font-weight: bold;
+	font-size: 13px;
+}
+.c-duihuan-bottom ul{
+	margin: 5px 0 0 0;
+	padding: 0 0 0 20px;
+}
+.c-duihuan-bottom ul li{
+	font-size: 12px;
+	color: #300900;
+}
+.slider-btn-layour {
+position: absolute;
+z-index: 999;
+width: 100%;
+top: 40%;
+}
+.slider-btn-layour .slider-btn {
+color: white;
+background: #9D2932;
+width: 40px;
+height: 40px;
+border-radius: 20px;
+border: none;
+}
+.slider-btn-layour .slider-btn:nth-child(1){
+margin-left: 10%;
+}
+.slider-btn-layour .slider-btn:nth-child(2){
+float: right;
+margin-right: 10%;
+}
+	.c-red-btn{
+				    width: 100%;
+					display: block;
+					height: 45px;
+					border: none;
+					border-radius: 2rem;
+					background-color: #9E2B31;
+					color: white;
+					font-size: 1.3rem;
+					margin-top: 10px;
+			}
+			.c-grade-list{
+				margin: 0;
+				padding: 0;
+			}
+			.c-grade-list li{
+				float: left;
+				margin-left: 0;
+				margin-right: 10px;
+				padding: 1px 6px;
+				color: white;
+				font-size: 13px;
+				border-radius: 3px;
+			}
+			.c-grade-list li:nth-child(1){
+				background: #9D2932;
+			}
+			.c-grade-list li:nth-child(2){
+				background: #494166;
+			}
+			.c-grade-list li:nth-child(3){
+				background: #177CB0;
+			}
+			.c-grade-list li:nth-child(4){
+				background: #789262;
+			}
+			.c-grade-list .grade-tip{
+				float: right;
+				color: #63010A;
+				font-weight: bold;
+			}

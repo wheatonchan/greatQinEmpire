@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/d.css" rel="stylesheet" />
+		
+		<link href="../css/c.css" rel="stylesheet" />
+		
+		<style>
+			.c-list-view .c-list-item-top{
+				font-size:16px ;
+				color: #421A05;
+			}
+			.c-list-view .c-list-item-top label:nth-child(2){
+				float: right;
+			}
+			.c-list-view .c-list-item-bottom{
+				font-size:13px ;
+				color: #421A05;
+				margin-top: 5px;
+			}
+			.c-list-view .c-list-item-top label.reward{
+				color: #77945E;
+			}
+			.c-filter{
+				position: relative;
+			}
+			.c-filter label{position: absolute;top: 28px;}
+			
+			.all-ti-code{background: url(../image/en01.png) no-repeat 85%;padding:10px 40px 10px 15px;font-size: 1rem;color:#300900;background-color: #EFE4D0;border:1px solid #BDA069;border-radius:20px;text-align: left;background-size: 12px;margin: 15px 5px 15px 20px;display: inline-block; text-overflow:ellipsis;overflow: hidden;}
+			.c-filter a:nth-child(4){
+				margin-left: 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="mui-fullscreen nomal-bg" >
+			<a class="mui-action-back mui-icon mui-pull-left"><img class="back" src="../image/back.png"/></a>
+			<div class="c-subTitle">
+				资金记录
+			</div>
+			<div class="c-filter">
+				<a href="#picture" class="all-ti-code" >全部</a>
+				<a href="#" class="all-ti-code" >起始时间</a>
+				<label>至</label>
+				<a href="#" class="all-ti-code" >截止时间</a>
+			</div>
+			<ul class="mui-table-view c-list-view">
+					<li class="mui-table-view-cell">
+						<div class="c-list-item-top" >
+							<label>预约</label>
+							<label>-10000</label>
+						</div>
+						<div class="c-list-item-bottom">2018-12-01 00:022 备注:xxxxxx</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="c-list-item-top" >
+							<label>预约</label>
+							<label>-10000</label>
+						</div>
+						<div class="c-list-item-bottom">2018-12-01 00:022 备注:xxxxxx</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="c-list-item-top" >
+							<label>预约</label>
+							<label class="reward">+10000</label>
+						</div>
+						<div class="c-list-item-bottom">2018-12-01 00:022 备注:xxxxxx</div>
+					</li>
+				</ul>
+		</div>
+			<div id="picture" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#">拍照或录像</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#">选取现有的</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#picture"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+		<script src="../js/mui.js"></script>
+		<script>
+			mui.init({
+				swipeBack:true //启用右滑关闭功能
+			});
+			mui('body').on('shown', '.mui-popover', function(e) {
+				//console.log('shown', e.detail.id);//detail为当前popover元素
+			});
+			mui('body').on('hidden', '.mui-popover', function(e) {
+				//console.log('hidden', e.detail.id);//detail为当前popover元素
+			});
+			var info = document.getElementById("info");
+			mui('body').on('tap', '.mui-popover-action li>a', function() {
+				var a = this,
+					parent;
+				//根据点击按钮，反推当前是哪个actionsheet
+				for (parent = a.parentNode; parent != document.body; parent = parent.parentNode) {
+					if (parent.classList.contains('mui-popover-action')) {
+						break;
+					}
+				}
+				//关闭actionsheet
+				mui('#' + parent.id).popover('toggle');
+				info.innerHTML = "你刚点击了\"" + a.innerHTML + "\"按钮";
+			})
+		</script>
+	</body>
+
+</html>

@@ -6,76 +6,11 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
 		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/d.css" />
 		<style>
-			input::-webkit-input-placeholder {
-				color: #9B8F7F;
-			}
-			
-			input:-moz-placeholder {
-				color: #9B8F7F
-			}
-			
-			input:-ms-input-placeholder {
-				color: #9B8F7F
-			}
-			
-			.mui-fullscreen {
-				background: url(../image/bg_home.jpg) no-repeat;
-				background-size: 100% 100%;
-			}
-			
-			.mui-fullscreen a {
-				float: right;
-				color: #300900;
-				margin-right: 20px;
-				font-size: 1rem;
-				margin-top: 15%;
-			}
-			
-			.login-logo {
-				clear: both;
-				margin-top: 25%;
-			}
-			
-			.login-logo img {
-				width: 20%;
-			}
-			
-			.login-desc {
-				margin-left: 10px;
-				color: #300900;
-				font-size: 1rem;
-				margin-top: 1.5rem;
-				display: inline-block;
-			}
-			
-			.login-form {
-				margin-left: 10px;
-				margin-right: 10px;
-				margin-top: 10px;
-			}
-			
-			.login-form input {
-				padding-left: 10px;
-				background-color: #DCD0BA;
-				border: none;
-				color: #9B8F7F;
-				font-size: .8rem;
-				height: 45px;
-				border-radius: 2rem;
-			}
-			
-			.login-form button {
-				width: 100%;
-				display: block;
-				height: 45px;
-				border: none;
-				border-radius: 2rem;
-				background-color: #9E2B31;
-				color: white;
-				font-size: 1.3rem;
-				margin-top: 10px;
-			}
+		.mui-fullscreen {background: url(../image/bg_home.jpg) no-repeat;background-size: 100% 100%;}
+		.mui-fullscreen a {float: right;color: #300900;margin-right: 20px;font-size: 1rem;margin-top: 15%;}
 		</style>
 	</head>
 
@@ -103,6 +38,9 @@
 					url: '../index.html'
 				});
 			});
+			mui.plusReady(function() {
+			    plus.navigator.setStatusBarStyle("UIStatusBarStyleBlackOpaque");
+			})
 		</script>
 	</body>
 
