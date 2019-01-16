@@ -1,8 +1,4 @@
  /*tab_home*/
-img.home-avater{width:7.5rem;margin-top: 20%;}
-.name-message{margin-top: 15px;display:flex;justify-content:center;align-items:center;}
-.name-message label{font-size: 1.5rem;vertical-align: middle;}
-.name-message span{background-color: #9E2B31;color: white;margin-left: 5px;font-size: .8rem;padding: 0.1rem .5rem;}
 .home-ti-code{width: 90%;padding: 10px 0;font-size: 1rem;color:#300900;background: url(../image/copy.png) no-repeat 95%;background-color: #EFE4D0;border:2px solid #BDA069;border-radius:20px;text-align: left;padding-left:5%;padding-right:5%;background-size: 4%;margin-top: 15px;text-overflow:ellipsis;overflow: hidden;}
  /*home-normal*/
 .normal-body h5:first-child{color: #9E2B31;font-size: 1.5rem;margin-top: 2rem;font-weight: bold;}

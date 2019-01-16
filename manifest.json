@@ -130,5 +130,96 @@
 				}
 			}
 		}
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"html/tab_home.html"
+				],
+				"refer": [
+					"html/tab_mine.html",
+					"html/tab_zhengtu.html",
+					"html/tab_duihuan.html"
+				],
+				"priority": 0
+			},
+			"html/login.html": {
+				"resources": [],
+				"refer": [
+					"index.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"html/reset_password.html",
+				"image/zp04.png",
+				"js/circleChart.es5.min.js",
+				"image/shuju.png",
+				"image/normal-horse.png",
+				"image/guize.png",
+				"html/funds_record.html",
+				"image/tab_duihuan.png",
+				"image/03.png",
+				"image/back.png",
+				"html/mine_about_us.html",
+				"image/zhengzhan.png",
+				"js/mui.js",
+				"image/empty_bg.jpg",
+				"image/home_putong.png",
+				"image/tab_mine.png",
+				"fonts/mui.ttf",
+				"image/zp01.png",
+				"html/mine_use_center.html",
+				"css/mui.css",
+				"image/home_gaoji.png",
+				"image/shandui.png",
+				"css/c.css",
+				"image/tubiao.png",
+				"image/tab_zhengtu.png",
+				"image/touxiang.png",
+				"image/high-carriage.png",
+				"image/mingdan.png",
+				"js/index.js",
+				"html/mine_family.html",
+				"image/02.png",
+				"image/normal-partbg.png",
+				"image/zp02.png",
+				"image/v_updata.png",
+				"image/home_zhuanpan.png",
+				"image/01.png",
+				"html/mine_safe_set.html",
+				"image/bg_home.jpg",
+				"image/jilu.png",
+				"image/tishi.png",
+				"image/wanc.png",
+				"html/home_high.html",
+				"css/common.css",
+				"js/mui.min.js",
+				"js/jquery-1.11.0.js",
+				"html/mine_withdraw.html",
+				"image/04.png",
+				"image/zhuanzhang.png",
+				"html/home_turnTable.html",
+				"image/bg_duihuan.jpg",
+				"image/en01.png",
+				"image/logo.png",
+				"html/home_normal.html",
+				"css/d.css",
+				"js/jquery.rotate.min.js",
+				"image/zhunbei.png",
+				"image/rule.png",
+				"image/bg_mine.jpg",
+				"image/copy.png",
+				"css/mui.min.css",
+				"image/zp03.png",
+				"html/mine_invite_share.html",
+				"image/tab_home.png",
+				"image/zhengtu_bg.jpg",
+				"js/circleChart.min.js"
+			]
+		}
 	}
 }

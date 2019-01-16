@@ -7,12 +7,17 @@
     <link href="../css/mui.min.css" rel="stylesheet"/>
     <link href="../css/d.css" rel="stylesheet"/>
     <link href="../css/c.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/common.css" />
 	<style>
 		.c-subTitle .c-right-img{
 			width: 20px;
 			float: right;
 			margin: 15px 3%;
 		}
+		#shan-dui .duihuan-title{color: #300900;font-size:20px;margin-bottom: 20px;}
+		#shan-dui .duihuan-button{margin-bottom: 15px;}
+		#shan-dui .duihuan-button button{width: 110px;height: 40px;border-radius: 25px;background-color: #DCD0BA;border-color: #DCD0BA;color:#7D6043 ;}
+		#shan-dui .duihuan-button button.click-active{background-color:#9E2B31;color: #FFFFFF;}
 	</style>
 	</head>
 	<body>
@@ -20,7 +25,7 @@
 		<div class=" mui-fullscreen duihuan-bg" >
 				 <div class="c-subTitle">
 					 兑换
-					 <img class="c-right-img" src="../image/jilu.png" />
+					 <a href="funds_record.html"><img class="c-right-img" src="../image/jilu.png" /></a>
 				 </div>
 				 <div class="c-duihuan-top">
 					 <div class="c-red-top">
@@ -59,11 +64,105 @@
 							
 						</ul>
 				</div>
+				
+				<div class="mui-popup mui-popup-in" id='grab-ticket' style="display: none;">
+				<div class="mui-popup-inner">
+				<div class="duihuan-title">转账</div>
+					<div class="book-number">
+						<div><label>转账数量:</label><label>可用368000</label></div>
+						<input type="text" placeholder="输入数量">
+					</div>
+					<div class="book-number">
+						<div><label>钱包地址:</label></div>
+						<input type="text" placeholder="输入钱包地址">
+					</div>
+					<div class="book-number">
+						<div><label>交易密码:</label></div>
+						<input type="text" placeholder="输入交易密码">
+					</div>
+					<div class="book-button">
+						<button class="book-cancle">取消</button>
+						<button class="book-sure">确定</button>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			<div class="mui-popup mui-popup-in" id='shan-dui' style="display: none;">
+				<div class="mui-popup-inner">
+				<div class="duihuan-title">闪兑</div>
+				<div class="duihuan-button"><button class="click-active">闪兑可用</button><button style="margin-left: 5px;">闪兑外部</button></div>
+					<div class="book-number">
+						<div><label>兑换数量:</label><label>可用368000</label></div>
+						<input type="text" placeholder="输入数量">
+					</div>
+					<div class="book-number wallet-address" style="display: none;">
+						<div><label>钱包地址:</label></div>
+						<input type="text" placeholder="输入钱包地址">
+					</div>
+					<div class="book-number">
+						<div><label>交易密码:</label></div>
+						<input type="text" placeholder="输入交易密码">
+					</div>
+					<div class="book-button">
+						<button class="book-cancle">取消</button>
+						<button class="book-sure">确定</button>
+					</div>
+				</div>
+			</div>
+			
+			<div class="mui-popup-backdrop mui-active" id='grab-ticket-backdrop' style="display: none;"></div>
 		</div>
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/jquery-1.11.0.js"></script>
-		<script>
+		<script type="text/javascript">
+			mui('.c-duihuan-btn').on('tap', '.zhuanzhang', function() {
+				$("#grab-ticket").css("display", "block")
+				$("#grab-ticket-backdrop").css("display", "block")
+			});
+			$("#grab-ticket .book-cancle").on('click',function(){
+				$("#grab-ticket").css("display", "none")
+				$("#grab-ticket-backdrop").css("display", "none")
+			});
+			$("#grab-ticket .book-sure").on('click',function(){
+				$("#grab-ticket").css("display", "none")
+				$("#grab-ticket-backdrop").css("display", "none")
+			});
 			
+			
+			mui('.c-duihuan-btn').on('tap', '.shandui', function() {
+				$("#shan-dui").css("display", "block")
+				$("#grab-ticket-backdrop").css("display", "block")
+			});
+			
+				$("#shan-dui .book-cancle").on('click',function(){
+				$("#shan-dui").css("display", "none")
+				$("#grab-ticket-backdrop").css("display", "none")
+			});
+			$("#shan-dui .book-sure").on('click',function(){
+				$("#shan-dui").css("display", "none")
+				$("#grab-ticket-backdrop").css("display", "none")
+			});
+			
+			mui('.duihuan-button').on('tap','button',function(){
+				$(this).addClass('click-active');
+				if($(this).text() == "闪兑可用"){
+					$('.wallet-address').css('display','none');
+					$('.duihuan-button button').eq(1).removeClass('click-active');
+				}else{
+					$('.wallet-address').css('display','block');
+					$('.duihuan-button button').eq(0).removeClass('click-active');
+				}
+				
+			});
+			
+			mui('.c-subTitle').on('tap','.c-right-img',function(){
+					mui.openWindow({
+					id: 'funds_record',
+					url: 'funds_record.html'
+				});
+			})
 		</script>
 	</body>
 </html>

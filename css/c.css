@@ -12,8 +12,9 @@
 .c-subTitle{
 	font-size: 35px;
 	line-height: 50px;
-	margin: 50px 0 10px 15px;
+	margin: 50px 0 10px 10px;
 	font-weight: bold;
+	color: #300900;
 }
 .mui-table-view:before{
 	height: 0;
@@ -63,7 +64,7 @@
 .c-pop .mui-popup-title{
 	font-weight: 600;
 	font-size: 20px;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 }
 .v-pic{
 	text-align: center;
@@ -106,7 +107,10 @@
 .mui-table-view{
 	background: transparent;
 }
-
+.mui-table-view-cell > a:not(.mui-btn).mui-active
+{
+    background-color: transparent;
+}
 
 .zhengtu-bg{
 	background:url(../image/zhengtu_bg.jpg)  no-repeat; background-size:cover;
@@ -186,8 +190,10 @@
 	font-weight: bold;
 }
 .c-card-head .c-head-2{
-	margin: 10px 10% 0;
+	margin: 10px 0 0;
+	font-size: 14px;
 }
+
 .c-card-head .c-head-2 label:nth-child(2){
 	float: right;
 }
@@ -220,7 +226,8 @@ background:#EFE4D0;
 .nomal-bg{
 	background:url(../image/empty_bg.jpg) repeat; 
 	background-size:cover;
-	padding-top: 20px;
+	padding-top: 40px;
+	
 }
 .c-duihuan-top{
 	background:url(../image/shuju.png) no-repeat center;
@@ -377,4 +384,27 @@ margin-right: 10%;
 				float: right;
 				color: #63010A;
 				font-weight: bold;
+			}
+			
+			.c-input-out{
+				padding: 0 3%;
+			}
+			.c-input-out label{
+				color: #67513D;
+				font-size: 12px;
+			}
+			.c-input-out textarea{
+				margin: 10px 0 15px;
+				background: #EFE4D0;
+				border-radius: 5px;
+			}
+			.updata-address{
+				background: #9D2932;
+				color: #F9FBE4;
+				border-radius: 20px;
+				border: none;
+				margin-left: 3%;
+				height: 40px;
+				padding: 0 25px;
+				line-height: 40px;
 			}

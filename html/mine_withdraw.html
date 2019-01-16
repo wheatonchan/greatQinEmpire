@@ -8,25 +8,20 @@
 		<link href="../css/mui.css" rel="stylesheet" />
 		<link href="../css/c.css" rel="stylesheet" />
 		<style>
-			.c-input-out{
-				padding: 0 3%;
-			}
-			.c-input-out label{
-				color: #67513D;
-				font-size: 12px;
-			}
-			.c-input-out textarea{
-				margin: 10px 0 15px;
-				background: #EFE4D0;
-				border-radius: 5px;
+			.mui-popup-input.c-pop-input textarea {
+				border: none;
+				background: #DCD0BA;
+				border-radius: 6px;
+				padding-left: 10px;
+				width: 92%;
+				margin-left: 3%;
 			}
 		</style>
 	</head>
 
 	<body >
-		<header class="mui-bar mui-bar-nav c-header">
-			<a class="mui-action-back mui-icon mui-pull-left"><img class="back" src="../image/back.png"/></a>		</header>
-		<div class="mui-fullscreen nomal-bg" style="padding-top: 40px;">
+		<div class="mui-fullscreen nomal-bg">
+			<a class="mui-action-back mui-icon mui-pull-left"><img class="back" src="../image/back.png"/></a>
 			<div class="c-subTitle">
 				提币地址
 				</div>
@@ -34,15 +29,56 @@
 			<label>ETH提币地址（默认登录钱包地址）</label>
 			<textarea rows="2"></textarea>
 			</div>
-			<div class="c-input-out">
-			<label>ETH提币地址</label><span class="mui-pull-right">编辑</span>
-			<textarea rows="2"></textarea>
+		
+			<button type="button" class="mui-btn updata-address" id="updata">修改地址</button>
+		
+			<div class="mui-popup c-pop mui-popup-in " id="name-pop" style="display: none;">
+				<div class="mui-popup-inner">
+					<div class="mui-popup-title">修改提币地址</div>
+					<div class="mui-popup-input c-pop-input">
+						<textarea rows="3" id="newEth"></textarea>
+					</div>
+					
+				</div>
+				<div class="mui-popup-buttons">
+					<span class="mui-popup-button pop-cancel">取消</span>
+					<span class="mui-popup-button pop-sure" onclick="restEth()">确定</span>
+				</div>
 			</div>
-			<button type="button" class="mui-btn add-address">添加地址</button>
+			<div class="mui-popup-backdrop mui-active" style="display: none;"></div>
 		</div>
+		
 		<script src="../js/mui.js"></script>
+		<script src="../js/jquery-1.11.0.js"></script>
+		<script src="../js/common.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
+			$("#updata").on("tap", function() {
+				// e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+				$("#name-pop").css("display","block");
+				$(".mui-popup-backdrop").css("display","block")
+			});
+			$(".pop-cancel").on("click",function(){
+				$(".c-pop").css("display","none");
+				$(".mui-popup-backdrop").css("display","none")
+			});
+			function restEth(){
+				var params ={};
+				params.from = itemUrl.mfrom;
+				params.sign = itemUrl.sign;
+				params.token = plus.storage.getItem("token");
+				params.eth = $("#newEth").val();
+				
+				
+				mui.post(baseUrl+itemUrl.eth,params,function(data){
+					mui.toast(data.message,{ duration:'long', type:'div' });
+						if(data.code=="200"){
+						
+						}
+					},'json'
+				);
+				
+			}
 		</script>
 	</body>
 

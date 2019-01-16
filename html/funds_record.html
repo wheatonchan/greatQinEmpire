@@ -7,9 +7,8 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.css" rel="stylesheet" />
 		<link href="../css/d.css" rel="stylesheet" />
-		
 		<link href="../css/c.css" rel="stylesheet" />
-		
+		<link rel="stylesheet" href="../css/mui.picker.min.css" />
 		<style>
 			.c-list-view .c-list-item-top{
 				font-size:16px ;
@@ -29,11 +28,43 @@
 			.c-filter{
 				position: relative;
 			}
-			.c-filter label{position: absolute;top: 28px;}
+			.c-filter label{position: absolute;
+			top: 18px;}
 			
-			.all-ti-code{background: url(../image/en01.png) no-repeat 85%;padding:10px 40px 10px 15px;font-size: 1rem;color:#300900;background-color: #EFE4D0;border:1px solid #BDA069;border-radius:20px;text-align: left;background-size: 12px;margin: 15px 5px 15px 20px;display: inline-block; text-overflow:ellipsis;overflow: hidden;}
+			.all-ti-code{
+				background: url(../image/en01.png) no-repeat 85%;
+				padding:5px 30px 5px 10px;
+				font-size: 1rem;
+				color:#300900;
+				background-color: #EFE4D0;
+				border:1px solid #BDA069;
+				border-radius:20px;
+				text-align: left;background-size: 12px;
+				margin: 10px 0px 10px 10px;
+				display: inline-block; 
+				text-overflow:ellipsis;
+				overflow: hidden;
+				}
 			.c-filter a:nth-child(4){
-				margin-left: 30px;
+				margin-left: 20px;
+			}
+			.mui-dtpicker, .mui-poppicker,.mui-picker{background: #EFE4D0;}
+			.mui-dtpicker-title h5{background: #EFE4D0;border: none;color:#7D6043;}
+			.mui-dtpicker-header{padding: 15px;}
+			.mui-dtpicker-header button{border: none;background: transparent;font-size: 16px;}
+			.mui-dtpicker-header button[data-id='btn-cancel']{color: #300900;}
+			.mui-dtpicker-header button[data-id='btn-ok']{color:#9E2B31;}
+			.mui-pciker-list li{color:#7D6043;}
+			.mui-pciker-list li.highlight{color: #300900;}
+			.c-popover.mui-popover.mui-popover-action{
+				background: #EFE4D0 !important
+			}
+			.c-popover.mui-popover.mui-popover-action .mui-table-view{
+				background: none;
+				color: #381100;
+			}
+			.c-popover.mui-popover.mui-popover-action .mui-table-view .mui-table-view-cell:after{
+				height: 0;
 			}
 		</style>
 	</head>
@@ -46,10 +77,10 @@
 				资金记录
 			</div>
 			<div class="c-filter">
-				<a href="#picture" class="all-ti-code" >全部</a>
-				<a href="#" class="all-ti-code" >起始时间</a>
+				<a href="#all-code" class="all-ti-code" >全部</a>
+				<a href="#" class="all-ti-code year" >起始时间</a>
 				<label>至</label>
-				<a href="#" class="all-ti-code" >截止时间</a>
+				<a href="#" class="all-ti-code year" >截止时间</a>
 			</div>
 			<ul class="mui-table-view c-list-view">
 					<li class="mui-table-view-cell">
@@ -75,7 +106,7 @@
 					</li>
 				</ul>
 		</div>
-			<div id="picture" class="mui-popover mui-popover-action mui-popover-bottom">
+			<div id="all-code" class="c-popover mui-popover mui-popover-action mui-popover-bottom">
 			<ul class="mui-table-view">
 				<li class="mui-table-view-cell">
 					<a href="#">拍照或录像</a>
@@ -84,20 +115,37 @@
 					<a href="#">选取现有的</a>
 				</li>
 			</ul>
-			<ul class="mui-table-view">
-				<li class="mui-table-view-cell">
-					<a href="#picture"><b>取消</b></a>
-				</li>
-			</ul>
 		</div>
 		<script src="../js/mui.js"></script>
-		<script>
+		<script type="text/javascript" src="../js/mui.picker.min.js" ></script>
+		<script type="text/javascript" src="../js/jquery-1.11.0.js" ></script>
+		<script type="text/javascript">
 			mui.init({
 				swipeBack:true //启用右滑关闭功能
+			});
+			
+			mui('.c-filter').on('tap', '.all-ti-code.year', function() {
+                        var self = $(this);
+						var picker;
+						if(picker) {
+							picker.show(function (rs) {
+							self.text(rs.text);
+								picker.dispose();
+								picker = null;
+							});
+						} else {
+							picker = new mui.DtPicker({"type":"month"});
+							picker.show(function(rs) {
+							self.text(rs.text);
+							picker.dispose();
+							   picker = null;
+							});
+						}
 			});
 			mui('body').on('shown', '.mui-popover', function(e) {
 				//console.log('shown', e.detail.id);//detail为当前popover元素
 			});
+			 
 			mui('body').on('hidden', '.mui-popover', function(e) {
 				//console.log('hidden', e.detail.id);//detail为当前popover元素
 			});

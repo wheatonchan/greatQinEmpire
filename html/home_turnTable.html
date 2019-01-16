@@ -21,11 +21,13 @@
 			.turnTable-money div label:nth-child(2){margin-top: 10px;}
 			.turnTable-body{width: 100%;top: 20px;position: relative;}
 			.turnTable-schedule{clear: both;background: url(../image/zp01.png) center no-repeat;color: white;width: 180px;height: 50px;background-size: 100%;line-height: 50px;font-size: 18px;}
-		.turnTable-body .schedule-message{margin-top: 8px;}
-.turnTable-body .schedule-message span{color: #9E2B31;font-size:15px;}
-.turnTable-body .schedule-message span+span{color:#7D6043;}
-
-
+			.turnTable-body .schedule-message{margin-top: 8px;}
+			.turnTable-body .schedule-message span{color: #9E2B31;font-size:15px;}
+			.turnTable-body .schedule-message span+span{color:#7D6043;}
+			.turnTable-body .click-button{position: relative;top: 120px;}
+			.turnTable-body .click-button button{width:160px;height: 60px;border: none;}
+			.turnTable-body .click-button .lottery-rule{background: url(../image/guize.png) center no-repeat;background-size: 100%;}
+			.turnTable-body .click-button .lottery-name{background: url(../image/mingdan.png) center no-repeat;background-size: 100%;}
           .lottery-box {
 				width:260px;
 				height:260px;
@@ -47,13 +49,13 @@
 			}
 			
 			.lottery-box-border{
-				width: 346px;
-				height: 380px;
+				width: 330px;
+				height: 360px;
 				background: url(../image/zp04.png) no-repeat;
 				background-size: 100% 100%;
 				position: absolute;
-				top:-60px;
-				left: -44px;
+				top:-55px;
+				left: -35px;
 				z-index: 1;
 			}
 			.circleChart{
@@ -64,6 +66,52 @@
 				left: 0px;;
 				z-index: 0;
 	
+			}
+			.mui-popup-title{color:#300900;padding-top:20px;font-size: 20px;}
+			.mui-popup-title+.mui-popup-text{margin: 10px 0 30px 0;color: #7D6043;font-size: 16px;}
+			.mui-popup-button:first-child:last-child{width: 100%;height: 50px;background: transparent;border:none;border-top:.5px solid #BDA069;color:#9E2B31;}
+			.mui-popup-title+.mui-popup-text .popup-tip-title{color:#9E2B31;font-size: 30px;padding: 15px 0;}
+			.mui-popup-title+.mui-popup-text .popup-tip-text{padding: 5px 10px 0 10px;line-height: 25px;text-align: left;}
+			.m-pop .mui-popup-inner{
+				height: 400px;
+				padding: 0;
+			}
+			.m-pop .m-pop-title{
+				border-bottom: 1px solid #C0A16B;
+				text-align: left;
+				line-height: 50px;
+				padding: 0 4%;
+				font-weight: bold;
+			}
+			.m-pop .m-pop-title .close-pop{
+				float: right;
+				font-weight: 400;
+				cursor: pointer;
+			}
+			.m-pop .mui-scroll-wrapper{
+				top: 50px;
+			}
+			
+			.m-pop .mui-scroll-wrapper .mui-table-view:before,.m-pop .mui-scroll-wrapper .mui-table-view-cell:after,.m-pop .mui-scroll-wrapper .mui-table-view:after{
+				height: 0;
+			}
+			.m-pop .mui-table-view-cell>a{
+				text-align: left;
+			}
+			.m-pop .mui-table-view-cell>a span{
+				display: inline-block;
+				width: 60%;
+				text-overflow: ellipsis;
+				white-space:nowrap;
+				overflow: hidden;
+				
+			}
+			.m-pop .mui-table-view-cell>a label{
+				float: right;
+				color: #3D1A00;
+			}
+			.m-pop{
+				color: #3D1A00;
 			}
 		</style>
 	</head>
@@ -93,10 +141,63 @@
 				<div class="circleChart" ></div>
 				<div class="playbtn"  title="开始抽奖"></div>
 			</div>
-	
-           </div>
 			
-		</div>
+			<div class="click-button">
+				<button class="lottery-rule"></button>
+				<button class="lottery-name"></button>
+			</div>
+		  </div>
+		  
+		      <div class="mui-popup mui-popup-in" id='grab-ticket' style="display: none;">
+				<div class="mui-popup-inner">
+					<div class="book-title lottery"><label>抽奖</label><label>第8局</label><label>预约</label></div>
+					<div class="book-number">
+						<div><label>请输入数量:</label><label>可用368000</label></div>
+						<input type="text" placeholder="输入数量(最低100 ~ 最高5%)">
+					</div>
+					<div class="book-number">
+						<div><label>交易密码:</label></div>
+						<input type="text" placeholder="输入交易密码">
+					</div>
+					<div class="book-button">
+						<button class="book-cancle">取消</button>
+						<button class="book-sure">确定</button>
+					</div>
+				</div>
+			</div>
+			<div class="mui-popup-backdrop mui-active" id='grab-ticket-backdrop' style="display: none;"></div>
+			
+			<!-- 中奖名单 -->
+			<div class="mui-popup mui-popup-in m-pop" id='prize-list-pop' style="display: none;">
+				<div class="mui-popup-inner">
+					<div class="m-pop-title">第八局中奖名单  <apan class='close-pop'>X</apan></div>
+					<div class="mui-scroll-wrapper" >
+						<div class="mui-scroll">
+							<ul class="mui-table-view " style="background: transparent;">
+									<li class="mui-table-view-cell">
+										<a class="">
+											<span>gefdsfbdfbv....nvoasdnvoas</span>
+											<label>一等奖</label>
+										</a>
+									</li>
+									
+								</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="mui-popup mui-popup-in" id='rule-pop' style="display: none;">
+				<div class="mui-popup-inner">
+					<h5>规则说明</h5>
+					<p>以太坊协议将尽可能简单，以便以某些数据存储和时间上的低效为代价。一个普通的程序员也能够完美地 去实现完整的开发说明。这将最终有助于降低任何特殊个人或精英团体可能对协议的影响并且推进以太坊作为对所有人 开发的协议的应用前景。
+					</p>
+					<button class="have-konw">我已了解</button>
+				</div>
+			</div>
+			<div class="mui-popup-backdrop mui-active" id='rule-pop-backdrop' style="display: none;"></div>
+		  </div>
         <script type="text/javascript" src="../js/mui.min.js" ></script>
 		<script type="text/javascript" src="../js/jquery-1.11.0.js" ></script>
 		<script type="text/javascript" src="../js/jquery.rotate.min.js" ></script>
@@ -112,16 +213,16 @@
 					data = data[Math.floor(Math.random() * data.length)];
 					switch(data) {
 						case 1:
-							rotateFunc(1, 0, '谢谢参与!');
+							rotateFunc(1, 0, '谢谢参与');
 							break;
 						case 2:
 							rotateFunc(2, 90, '一等奖');
 							break;
 						case 3:
-							rotateFunc(3, 180, '二等奖!');
+							rotateFunc(3, 180, '二等奖');
 							break;
 						case 4:
-							rotateFunc(4, 270, '三等奖!');
+							rotateFunc(4, 270, '三等奖');
 							break;
 					}
 				};
@@ -139,7 +240,18 @@
 						animateTo: angle + 1440, //让它根据得出来的结果加上1440度旋转
 						callback: function() {
 							isture = false; // 标志为 执行完毕
-							alert(text);
+							if(text == "谢谢参与"){
+								mui.alert("再接再厉! 祝君中奖","谢谢参与",["确定"],function(e){
+									
+								},'div');
+							}else{
+//								$('.mui-popup-title').after('<div>qwfrwftergrtuh</div>');
+								mui.alert('<div class="popup-tip-title">'+"66666"+'</div> <div class="popup-tip-text">恭喜您抽中'+text+"666RC"+',已发放到你的资金账户，可在兑换中查看。</div>',text,["确定"],function(e){
+									
+								},'div');
+							}
+				
+//							alert(text);
 						}
 					});
 				};
@@ -154,7 +266,53 @@
       backgroundColor: "#C0A16B",
       animation: "easeInOutCubic"
   });
+	
+	mui('.mui-scroll-wrapper').scroll({
+		indicators: true //是否显示滚动条
+	});
+	
+	
+		 $('.lottery-rule').on('click', function() {
+				$("#rule-pop").css("display", "block")
+				$("#rule-pop-backdrop").css("display", "block")
 			});
+			 $('.lottery-name').on('click', function() {
+					$("#prize-list-pop").css("display", "block")
+					$("#rule-pop-backdrop").css("display", "block")
+				});
+			$(".have-konw").on("click", function() {
+				$("#rule-pop").css("display", "none")
+				$("#rule-pop-backdrop").css("display", "none")
+			})
+			
+			
+			mui('.turnTable-body').on('tap', '.turnTable-schedule', function() {
+				$("#grab-ticket").css("display", "block")
+				$("#grab-ticket-backdrop").css("display", "block")
+			});
+			$(".book-cancle").on('click',function(){
+				$("#grab-ticket").css("display", "none")
+				$("#grab-ticket-backdrop").css("display", "none")
+			});
+			$(".book-sure").on('click',function(){
+				$("#grab-ticket").css("display", "none")
+				$("#grab-ticket-backdrop").css("display", "none")
+			});
+			});
+			
+			$(".close-pop").on('click',function(){
+				$(".mui-popup").css("display", "none")
+				$("#rule-pop-backdrop").css("display", "none")
+			});
+			
+			
+			var subStr = getSubStr(str);
+			function getSubStr (str){
+				var subStr1 = str.substr(0,5);
+				var subStr2 = str.substr(str.length-5,5);
+				var subStr = subStr1 + "..." + subStr2 ;
+				return subStr;
+			}
 		</script>
 	</body>
 </html>

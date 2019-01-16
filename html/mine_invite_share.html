@@ -25,8 +25,22 @@
 			</div>
 		</div>
 		<script src="../js/mui.js"></script>
+		<script src="../js/jquery-1.11.0.js"></script>
+		<script src="../js/common.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
+			function plusReady(){
+				var params ={};
+				params.from = itemUrl.mfrom;
+				params.sign = itemUrl.sign;
+				params.token = plus.storage.getItem("token");
+				
+				mui.getJSON(baseUrl+itemUrl.inviter,params,function(data){
+		          
+				}
+			);
+			}
+				document.addEventListener("plusready",plusReady,false);
 		</script>
 	</body>
 
