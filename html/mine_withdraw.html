@@ -27,7 +27,7 @@
 				</div>
 			<div class="c-input-out">
 			<label>ETH提币地址（默认登录钱包地址）</label>
-			<textarea rows="2"></textarea>
+			<textarea readonly="readonly" id="eth" rows="2"></textarea>
 			</div>
 		
 			<button type="button" class="mui-btn updata-address" id="updata">修改地址</button>
@@ -36,7 +36,7 @@
 				<div class="mui-popup-inner">
 					<div class="mui-popup-title">修改提币地址</div>
 					<div class="mui-popup-input c-pop-input">
-						<textarea rows="3" id="newEth"></textarea>
+						<textarea rows="3"  id="newEth"></textarea>
 					</div>
 					
 				</div>
@@ -62,6 +62,10 @@
 				$(".c-pop").css("display","none");
 				$(".mui-popup-backdrop").css("display","none")
 			});
+			mui.plusReady(function(){
+				var useinfo = getUserInfo();
+				$("#eth").text(useinfo.profile.eth);
+			})
 			function restEth(){
 				var params ={};
 				params.from = itemUrl.mfrom;
@@ -73,7 +77,9 @@
 				mui.post(baseUrl+itemUrl.eth,params,function(data){
 					mui.toast(data.message,{ duration:'long', type:'div' });
 						if(data.code=="200"){
-						
+						$(".pop-cancel").click();
+						$("#eth").text($("#newEth").val());
+						$("#newEth").val("");
 						}
 					},'json'
 				);

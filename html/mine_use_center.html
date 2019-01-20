@@ -5,7 +5,6 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.css" rel="stylesheet" />
-		
 		<link href="../css/c.css" rel="stylesheet" />
 		<style>
 			.mui-slider .mui-slider-item a{
@@ -24,7 +23,14 @@
 				padding: 4px 5px;
 				margin: -4px -5px;
 			}
-		
+			.c-red-btn {
+				margin: 10px 3% 30px;
+				width: 94%;
+			}
+		.c-radio-grid .radio-btn.active{
+			background: #9D2932;
+			color: #F1ECD8;
+			}
 		</style>
 	</head>
 	<body>
@@ -84,18 +90,14 @@
 				<ul class="mui-table-view">
 						<li class="mui-table-view-cell name">
 							<label class="c-subLab">昵称</label>
-							<a class="mui-navigate-right" id="username">
-								Item 1
+							<a class="mui-navigate-right" id="nikename">
 							</a>
 						</li>
 						<li class="mui-table-view-cell grade">
 							<label class="c-subLab">等级</label>
 							<a class="">
 								 <ul class="c-grade-list" id="gradeList">
-									<li>丞相</li>
-									  <li>元帅</li>
-									  <li>将军</li>
-									  <li>士兵</li>
+									
 									  <li class="grade-tip" >晋升级别</li>
 									  <li style="clear: both;"></li>
 								 </ul>
@@ -104,13 +106,11 @@
 						<li class="mui-table-view-cell">
 							<label class="c-subLab">UID</label>
 							<a class="" id="uid">
-								 Item 2
 							</a>
 						</li>
 						<li class="mui-table-view-cell">
 							<label class="c-subLab">创建时间</label>
 							<a class="" id="createTime">
-								 Item 2
 							</a>
 						</li>
 				</ul>
@@ -141,8 +141,8 @@
 				<div class="mui-popup-inner">
 					<div class="mui-popup-title">晋升级别</div>
 					<ul class="mui-table-view mui-grid-view mui-grid-9 c-radio-grid">
-					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
-						<a class="radio-btn" href="#">
+				<!-- 	<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a class="radio-btn active" href="#">
 							丞相
 						</a>
 					</li>
@@ -155,11 +155,11 @@
 						<a class="radio-btn" href="#">
 							将军
 						</a>
-					</li>
-						</ul>
+					</li> -->
+					</ul>
 					
 					<div class="c-bottom-tip c-pop-input">
-						<label>设置交易密码</label>
+						<label id="levelnum">晋升条件:需一次性充值 999 ETH</label>
 						<div class="c-tip">您尚未达到要求，是否晋升级别？</div>
 						
 					</div>
@@ -178,7 +178,7 @@
 		<script type="text/javascript">
 			mui.init();
 			var index = 0;
-			
+			var buy_limit_num = null;
 			var gallery = mui('.mui-slider');
 			gallery.slider({
 			  interval:0//自动轮播周期，若为0则不自动播放，默认为0；
@@ -217,7 +217,12 @@
 				$(".c-pop").css("display","none");
 				$(".mui-popup-backdrop").css("display","none")
 			})
-			
+			mui(".c-radio-grid").on("tap",".radio-btn",function(){
+				$(".c-radio-grid .radio-btn").removeClass("active");
+				$(this).addClass("active");
+				var position = $(this).attr("posi");
+				$("#levelnum").text("晋升条件:需一次性充值 "+ buy_limit_num[position]+" ETH");
+			})
 			
 			function plusReady(){
 				var params ={};
@@ -225,12 +230,37 @@
 				params.sign = itemUrl.sign;
 				params.token = plus.storage.getItem("token");
 				mui.post(baseUrl+itemUrl.center,params,function(data){
-					//alert(JSON.stringify(data));
 						if(data.code=="200"){
-							$("#username").text(data.data.account.username);
+							$("#nikename").text(data.data.profile.nickname);
 							$("#uid").text(data.data.account.uid);
 							$("#createTime").text(data.data.account.username);
-				
+							buy_limit_num = data.data.levellist.buy_limit_num;
+							switch(data.data.account.levelname){
+								case "士兵":
+								$("#gradeList .grade-tip").before('<li class="bin" >士兵</li>');
+								break;
+								case "丞相":
+								$("#gradeList .grade-tip").before('<li class="cheng" >丞相</li>');
+								break;
+								case "元帅":
+								$("#gradeList .grade-tip").before('<li class="yuan" >元帅</li>');
+								break;
+								case "将军":
+								$("#gradeList .grade-tip").before('<li class="jian" >将军</li>');
+								break;
+							}
+							data.data.levellist.buy_limit_level.forEach(function(e,i){
+								
+								if(e !="士兵"){
+									var item ='<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">'+
+										'<a class="radio-btn" href="#" posi="'+i+""+'">'+e +'</a>'+
+									'</li>';
+									$("#rise-pop .c-radio-grid").append(item);
+								}
+							})
+							$("#rise-pop .c-radio-grid a").eq(0).addClass("active");
+							var position =$("#rise-pop .c-radio-grid a").eq(0).attr("posi");
+							$("#levelnum").text("晋升条件:需一次性充值 "+ buy_limit_num[position]+" ETH");
 						}
 					},'json'
 				);

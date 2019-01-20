@@ -81,7 +81,8 @@
 	color:#77171E
 }
 .c-media-list{
-	color: #77171E
+	top:150px;
+	/*color: #77171E*/
 }
 .c-media-list .mui-media-object{
 	max-width: 60px;
@@ -233,9 +234,10 @@ background:#EFE4D0;
 	background:url(../image/shuju.png) no-repeat center;
 	width: 96%;
 	margin: -10px 2% 0;
-	height: 24%;
+	height: 28%;
 	background-size: 100% 100%;
 	position: relative;
+	text-align: center;
 }
 .c-duihuan-top .c-red-top{
 	color: #EFE4D0;
@@ -245,36 +247,50 @@ background:#EFE4D0;
 .c-duihuan-top .c-red-top span{
 	display: block;
 	font-size: 25px;
+	text-align: center;
+	max-width: 80%;
+	margin:2.5rem auto 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .c-duihuan-top .c-red-top label{
 	display: block;
 	font-size: 12px;
-	margin-top: 5px;
 }
 .c-duihuan-top .top-bottom{
 	position: absolute;
-	bottom: 10%;
+	bottom: 2%;
 	margin: 0;
 	width: 100%;
 	height: 30%;
 	padding: 5px 0;
+	text-align: center;
+	width: 100%;
 }
 ul li {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
-.c-duihuan-top .top-bottom li {
+.c-duihuan-top .top-bottom li{
 	width: 50%;
 	float: left;
-	text-align: center;
 	color: #EFE4D0;
+	padding: 0;
+	
+	display:table-cell;
 }
 
-.c-duihuan-top .top-bottom li p {
+.c-duihuan-top .top-bottom li p{
 	font-size: 20px;
 	color: #EFE4D0;
-	margin: 0;
+	margin: 0 auto;
+	padding: 0;
+	text-align: center !important;
+	max-width: 40%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: auto;
 }
 .c-duihuan-top .top-bottom li span{
 	font-size: 12px;
@@ -315,13 +331,14 @@ ul li {
 	font-weight: bold;
 	font-size: 13px;
 }
-.c-duihuan-bottom ul{
+.c-tip-role{
 	margin: 5px 0 0 0;
 	padding: 0 0 0 20px;
 }
-.c-duihuan-bottom ul li{
+.c-tip-role p{
 	font-size: 12px;
 	color: #300900;
+	margin-bottom: 0;
 }
 .slider-btn-layour {
 position: absolute;
@@ -368,16 +385,16 @@ margin-right: 10%;
 				font-size: 13px;
 				border-radius: 3px;
 			}
-			.c-grade-list li:nth-child(1){
+			.c-grade-list li.cheng{
 				background: #9D2932;
 			}
-			.c-grade-list li:nth-child(2){
+			.c-grade-list li.yuan{
 				background: #494166;
 			}
-			.c-grade-list li:nth-child(3){
+			.c-grade-list li.jian{
 				background: #177CB0;
 			}
-			.c-grade-list li:nth-child(4){
+			.c-grade-list li.bin{
 				background: #789262;
 			}
 			.c-grade-list .grade-tip{
@@ -408,3 +425,15 @@ margin-right: 10%;
 				padding: 0 25px;
 				line-height: 40px;
 			}
+			.c-media-list .mui-table-view .mui-table-view-cell{
+				padding: 15px 15px;
+			}
+		.c-media-list .mui-table-view .mui-media,.c-scroll-list .mui-table-view .mui-media-body{
+			color: #300900;
+		}
+.c-media-list .mui-table-view .mui-media-body .mui-ellipsis{
+	color: #7D6043;
+	margin-top: 5px;
+}
+.mui-table-view-cell:after{background-color:#DFD1AD !important ;}
+.mui-table-view:after{background-color:#DFD1AD;left: 15px;}

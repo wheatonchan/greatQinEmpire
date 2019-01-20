@@ -41,11 +41,11 @@
 						<div class="mui-popup-title">修改登录密码</div>
 						<div class="mui-popup-input c-pop-input">
 							<label>原登录密码</label>
-							<input type="text" autofocus="" placeholder="输入原密码">
+							<input type="password" autofocus="" placeholder="输入原密码">
 						</div>
 						<div class="mui-popup-input c-pop-input" style="margin-bottom: 30px;">
 							<label>新登录密码</label>
-							<input type="text" autofocus="" id="newPw" placeholder="输入新登录密码">
+							<input type="password" autofocus="" id="newPw" placeholder="输入新登录密码">
 						</div>
 					</div>
 					<div class="mui-popup-buttons">
@@ -58,11 +58,11 @@
 						<div class="mui-popup-title">设置交易密码</div>
 						<div class="mui-popup-input c-pop-input">
 							<label>设置交易密码</label>
-							<input type="text" autofocus="" placeholder="输入交易密码">
+							<input type="password" autofocus="" placeholder="输入交易密码">
 						</div>
 						<div class="mui-popup-input c-pop-input" style="margin-bottom: 30px;">
 							<label>设置交易密码</label>
-							<input type="text" autofocus="" id="newjy" placeholder="输入交易密码">
+							<input type="password" autofocus="" id="newjy" placeholder="输入交易密码">
 						</div>
 					</div>
 					<div class="mui-popup-buttons">
@@ -72,6 +72,7 @@
 		<div class="mui-popup-backdrop mui-active" style="display: none;"></div>
 		<script src="../js/mui.min.js"></script>
 		<script src="../js/jquery-1.11.0.js"></script>
+		<script src="../js/common.js"></script>
 		<script type="text/javascript">
 			mui.init()
 			document.getElementById("promptBtn").addEventListener('tap', function(e) {
@@ -104,7 +105,7 @@
 					//alert(JSON.stringify(data));
 					mui.toast(data.message,{ duration:'long', type:'div' });
 						if(data.code=="200"){
-						
+						$(".pop-cancel").click();
 						}
 					},'json'
 				);

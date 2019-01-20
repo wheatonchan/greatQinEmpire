@@ -32,22 +32,20 @@
 	        <span class="mui-tab-label">我的</span>
 	    </a>
 	</nav>
-	   <script type="text/javascript" src="js/mui.min.js"></script>
+	 <script type="text/javascript" src="js/mui.min.js"></script>
 	<script type="text/javascript" src="js/index.js" ></script>
 
 	<script type="text/javascript">
 		mui.init();
-//		// H5 plus事件处理
-//		function plusReady(){
-//			var h=plus.webview.getLaunchWebview();
-//			plus.webview.close(h);
-//			plus.navigator.setStatusBarStyle("dark");
-//		}
-//		if(window.plus){
-//			plusReady();
-//		}else{
-//			document.addEventListener('plusready', plusReady, false);
-//		}
+		mui.plusReady(function () {
+			if(plus.os.android){
+				var h=plus.webview.getLaunchWebview();
+			plus.webview.close(h);
+			}
+			
+		  
+		});
+
 
 	</script>
 </body>

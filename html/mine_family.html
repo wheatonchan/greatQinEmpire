@@ -7,6 +7,11 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../css/mui.css" rel="stylesheet" />
 		<link href="../css/c.css" rel="stylesheet" />
+		<style>
+			.mui-pull-top-pocket{
+			  top: 140px !important;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -16,40 +21,28 @@
 			<div class="c-subTitle">
 				我的家族
 			</div>
-			<ul class="mui-table-view c-transpant c-media-list">
-				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-						<div class="mui-media-object mui-pull-right c-active">已激活</div>
-						<div class="mui-media-body">
-							幸福
-							<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-						</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-						<div class="mui-media-object mui-pull-right c-active">已激活</div>
-						<div class="mui-media-body">
-							木屋
-							<p class="mui-ellipsis">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
-						</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;">
-						<div class="mui-media-object mui-pull-right c-def">未激活</div>
-						<div class="mui-media-body">
-						    CBD
-							<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
-						</div>
-					</a>
-				</li>
-			</ul>
 		</div>
 		
 		<script src="../js/mui.js"></script>
+		<script src="../js/jquery-1.11.0.js"></script>
+		<script src="../js/common.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			//启用双击监听
+			mui.init({
+				gestureConfig:{
+					doubletap:true
+				},
+				subpages:[{
+					url:'mine_family_sub.html',
+					id:'mine_family_sub.html',
+					styles:{
+						top: '135px',
+						bottom: '0px',
+					}
+				}]
+			});
+		
+
 		</script>
 	</body>
 
